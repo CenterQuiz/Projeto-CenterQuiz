@@ -1,46 +1,82 @@
 package sd.api.rest.model;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-public class Questionario {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+	
+
+@Entity
+public class Questionario implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Id: especifica a chave primária de uma entidade.
+	 * GeneratedValue:
+	 * 		1. estratégia de geração de valores da chave primária.
+	 *      2. somente para chaves primárias simples.
+	 *      strategy: 
+	 *      	GenerationType: define o tipo de estratégia de geração de chave primária
+	 *      		TABLE, SEQUENCE, IDENTITY, AUTO
+	 *      		AUTO: espera que exista um recurso de banco de dados ou pode criar um.
+	 *      	
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String titulo;
-	private String texto;
-	private List<String> opcoes;
+	
+	private String nome;
+	private boolean tipoQuestionario;
+	private Date dataInicio;
+	private Date dataFim;
+	private Long duracao;
 	
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	public String getTitulo() {
-		return titulo;
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public boolean isTipoQuestionario() {
+		return tipoQuestionario;
+	}
+	public void setTipoQuestionario(boolean tipoQuestionario) {
+		this.tipoQuestionario = tipoQuestionario;
 	}
 	
-	public String getTexto() {
-		return texto;
+	public Date getDataInicio() {
+		return dataInicio;
+	}
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
 	}
 	
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public Date getDataFim() {
+		return dataFim;
+	}
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
 	}
 	
-	public List<String> getOpcoes() {
-		return opcoes;
+	public Long getDuracao() {
+		return duracao;
 	}
-
-	public void setOpcoes(List<String> opcoes) {
-		this.opcoes = opcoes;
+	public void setDuracao(Long duracao) {
+		this.duracao = duracao;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -57,9 +93,10 @@ public class Questionario {
 		Questionario other = (Questionario) obj;
 		return Objects.equals(id, other.id);
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Questionario [id=" + id + ", titulo=" + titulo + ", texto=" + texto + ", opcoes=" + opcoes + "]";
+		return "Questionario [id=" + id + ", nome=" + nome + ", tipoQuestionario=" + tipoQuestionario + ", dataInicio="
+				+ dataInicio + ", dataFim=" + dataFim + ", duracao=" + duracao + "]";
 	}
 }
