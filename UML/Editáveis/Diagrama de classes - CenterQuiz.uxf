@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>4</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
-      <y>60</y>
-      <w>108</w>
-      <h>148</h>
+      <x>756</x>
+      <y>42</y>
+      <w>204</w>
+      <h>222</h>
     </coordinates>
     <panel_attributes>_Questao_
 --
@@ -15,8 +15,8 @@
 - titulo: String
 - texto: String
 - opcoes: List&lt;String&gt;
-- respostas: List&lt;int&gt;
-- vezesPerguntado: List&lt;Long&gt;
+- respostas: List&lt;int&gt;pos
+- vezesPerguntado: Long
 --
 + Long getId()
 + void setId(Long id)
@@ -26,8 +26,8 @@
 + void setTexto(String texto)
 + String List&lt;String&gt; getOpcoes()
 + void setOpcoes(List&lt;String&gt; opcoes)
-+ List&lt;Long&gt; getVezesPerguntado()
-+ void getVezesPerguntado(List&lt;Long&gt;)
++ Long getVezesPerguntado()
++ void getVezesPerguntado(Long vezesPerguntado)
 + List&lt;int&gt; getRespostas();
 + void setRespostas(List&lt;int&gt; respostas)
 + int hashCode()
@@ -38,10 +38,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>200</x>
-      <y>356</y>
-      <w>148</w>
-      <h>240</h>
+      <x>0</x>
+      <y>522</y>
+      <w>222</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>_Usuario_
 --
@@ -86,20 +86,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>236</y>
-      <w>112</w>
-      <h>72</h>
+      <x>738</x>
+      <y>306</y>
+      <w>204</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>_BancoDeQuestoes_
 --
-- idUsuario: Long
-- questoes: List&lt;Long&gt;
+- id: Long
+- questionario: Questionario
+- administrador: Administrador
+- questoes: List&lt;Questao&gt;
 --
 + Long getId()
-+ void setId(Long id)
-+ List&lt;Long&gt; getQuestoes()
-+ void setQuestoes(Long&lt;Long&gt; questoes)
++ void setId(Long id) 
++ Questionario getQuestionario()
++ void setQuestionario(Questionario questionario)
++ Administrador getAdministrador()
++ void setAdministrador(Administrador administrador) 
++ List&lt;Questao&gt; getQuestoes()
++ void setQuestoes(List&lt;Questao&gt; questoes)
 + int hashCode()
 + String toString()
 + boolean equals(Object obj)</panel_attributes>
@@ -108,10 +114,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>676</x>
-      <y>356</y>
-      <w>140</w>
-      <h>148</h>
+      <x>714</x>
+      <y>522</y>
+      <w>210</w>
+      <h>222</h>
     </coordinates>
     <panel_attributes>_Questionario_
 --
@@ -142,62 +148,33 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>120</y>
-      <w>64</w>
-      <h>324</h>
+      <x>918</x>
+      <y>132</y>
+      <w>90</w>
+      <h>516</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0;140.0;780.0;20.0;780.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>740</x>
-      <y>304</y>
-      <w>20</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=0..1
-m2=1..*</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>752</x>
-      <y>204</y>
-      <w>12</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m1=
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+m2=</panel_attributes>
+    <additional_attributes>70.0;10.0;130.0;10.0;130.0;840.0;10.0;840.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>356</y>
-      <w>164</w>
-      <h>104</h>
+      <x>324</x>
+      <y>522</y>
+      <w>318</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>_UsuarioComum_
 --
-- id: Long
-- questionariosFeitos: List&lt;Long&gt;
+- mapQuestionariosFeitos: HashMap&lt;Long, Long&gt; (idQuestionario, qtdFeitos)
 - grupos: List&lt;Long&gt;
---
+--                      
 + void revisarQuestionario()
 
-+ Long getId()
-+ void setId(Long id)
-+ List&lt;Long&gt; getQuestionariosFeitos()
-+ void setQuestionariosFeitos(List&lt;Long&gt; questionariosFeitos)
++ HashMap&lt;Long, Long&gt; getMapQuestionariosFeitos()
++ void setMapQuestionariosFeitos(HashMap&lt;Long, Long&gt; mapQuestionariosFeitos)
 + List&lt;Long&gt; getGrupos()
 + void setGrupos(List&lt;Long&gt; grupos)
 + int hashCode()
@@ -208,14 +185,13 @@ m2=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
-      <y>60</y>
-      <w>132</w>
-      <h>148</h>
+      <x>24</x>
+      <y>42</y>
+      <w>198</w>
+      <h>222</h>
     </coordinates>
     <panel_attributes>_Administrador_
 --
-- id: Long
 - questionarios: List&lt;Long&gt;
 - grupos: List&lt;Long&gt;
 --
@@ -228,8 +204,6 @@ m2=*</panel_attributes>
 + void categoriaQuestionario()
 + void editarGrupo() 
 
-+ Long getId()
-+ void setId(Long id)
 + List&lt;Long&gt; getQuestionarios()
 + void setQuestionarios(List&lt;Long&gt; questionarios)
 + List&lt;Long&gt; getGrupos()
@@ -240,25 +214,12 @@ m2=*</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>624</x>
-      <y>416</y>
-      <w>60</w>
-      <h>16</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=0..1
-m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
-      <y>60</y>
-      <w>196</w>
-      <h>112</h>
+      <x>348</x>
+      <y>42</y>
+      <w>294</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>_Grupo_
 --
@@ -283,88 +244,127 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
-      <y>168</y>
-      <w>20</w>
-      <h>196</h>
+      <x>474</x>
+      <y>204</y>
+      <w>30</w>
+      <h>330</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..1
+m1=1..1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;470.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;530.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>108</y>
-      <w>96</w>
-      <h>16</h>
+      <x>216</x>
+      <y>114</y>
+      <w>144</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..1
+m1=1..1
 m2=1..*</panel_attributes>
     <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>124</y>
-      <w>368</w>
-      <h>92</h>
+      <x>216</x>
+      <y>138</y>
+      <w>552</w>
+      <h>138</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..1
+m1=1..1
 m2=1..*</panel_attributes>
     <additional_attributes>10.0;40.0;170.0;40.0;170.0;210.0;790.0;210.0;790.0;10.0;900.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>164</y>
-      <w>364</w>
-      <h>128</h>
+      <x>216</x>
+      <y>198</y>
+      <w>534</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..1
+m1=1..1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0;130.0;290.0;890.0;290.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;300.0;870.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>184</y>
-      <w>340</w>
-      <h>216</h>
+      <x>216</x>
+      <y>228</y>
+      <w>510</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..1
+m1=1..1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0;80.0;360.0;770.0;360.0;770.0;510.0;830.0;510.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;430.0;770.0;430.0;770.0;570.0;830.0;570.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>408</y>
-      <w>128</w>
-      <h>12</h>
+      <x>216</x>
+      <y>600</y>
+      <w>120</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
-      <y>204</y>
-      <w>12</w>
-      <h>160</h>
+      <x>108</x>
+      <y>258</y>
+      <w>18</w>
+      <h>276</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;380.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;440.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>636</x>
+      <y>618</y>
+      <w>90</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>468</y>
+      <w>30</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=1..1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>834</x>
+      <y>258</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
 </diagram>
