@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 	
 
 @Entity
@@ -35,48 +36,65 @@ public class Questionario implements Serializable{
 	private Date dataFim;
 	private Long duracao;
 	
+	@OneToOne(mappedBy = "questionario")
+	private BancoDeQuestoes bancoDeQuestoes;
+	
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	public boolean isTipoQuestionario() {
 		return tipoQuestionario;
 	}
+
 	public void setTipoQuestionario(boolean tipoQuestionario) {
 		this.tipoQuestionario = tipoQuestionario;
 	}
-	
+
 	public Date getDataInicio() {
 		return dataInicio;
 	}
+
 	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	
+
 	public Date getDataFim() {
 		return dataFim;
 	}
+
 	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
-	
+
 	public Long getDuracao() {
 		return duracao;
 	}
+
 	public void setDuracao(Long duracao) {
 		this.duracao = duracao;
 	}
-	
+
+	public BancoDeQuestoes getBancoDeQuestoes() {
+		return bancoDeQuestoes;
+	}
+
+	public void setBancoDeQuestoes(BancoDeQuestoes bancoDeQuestoes) {
+		this.bancoDeQuestoes = bancoDeQuestoes;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

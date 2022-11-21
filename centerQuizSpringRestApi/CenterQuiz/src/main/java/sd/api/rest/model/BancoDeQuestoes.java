@@ -25,8 +25,7 @@ public class BancoDeQuestoes implements Serializable{
 	private Long id;
 
 	@OneToOne
-	@MapsId
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "questionario_id")
 	private Questionario questionario;
 	
 	/*
@@ -36,7 +35,7 @@ public class BancoDeQuestoes implements Serializable{
 	private Administrador administrador;
 	*/
 	
-	@ElementCollection
+	@OneToMany(mappedBy = "bancoDeQuestoes")
 	private List<Questao> questoes = new ArrayList<Questao>();
 
 	public Long getId() {
@@ -61,10 +60,6 @@ public class BancoDeQuestoes implements Serializable{
 
 	public void setQuestoes(List<Questao> questoes) {
 		this.questoes = questoes;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
