@@ -42,8 +42,6 @@ public class BancoDeQuestoesController {
 	public ResponseEntity<List<BancoDeQuestoes>> obterBancoDeQuestoes() {
 		List<BancoDeQuestoes> bancoDeQuestoes = (List<BancoDeQuestoes>) bancoDeQuestoesRepository.findAll();
 
-                int x = 0;
-                System.err.println(x);
 		return new ResponseEntity<List<BancoDeQuestoes>>(bancoDeQuestoes, HttpStatus.OK);
 	}
 	
