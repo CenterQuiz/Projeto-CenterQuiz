@@ -1,4 +1,4 @@
-package sd.api.rest.model.repository;
+package sd.api.rest.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
