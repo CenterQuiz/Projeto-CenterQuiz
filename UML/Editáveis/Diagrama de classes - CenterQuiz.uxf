@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>6</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>756</x>
-      <y>42</y>
-      <w>204</w>
-      <h>222</h>
+      <x>1008</x>
+      <y>48</y>
+      <w>288</w>
+      <h>336</h>
     </coordinates>
     <panel_attributes>_Questao_
 --
@@ -15,33 +15,36 @@
 - titulo: String
 - texto: String
 - opcoes: List&lt;String&gt;
-- respostas: List&lt;int&gt;pos
+- respostas: List&lt;Integer&gt;
 - vezesPerguntado: Long
+- bancoDeQuestoes: BancoDeQuestoes
 --
-+ Long getId()
-+ void setId(Long id)
-+ String getTitulo()
-+ void setTitulo(String titulo)
-+ String getTexto()
-+ void setTexto(String texto)
-+ String List&lt;String&gt; getOpcoes()
-+ void setOpcoes(List&lt;String&gt; opcoes)
-+ Long getVezesPerguntado()
-+ void getVezesPerguntado(Long vezesPerguntado)
-+ List&lt;int&gt; getRespostas();
-+ void setRespostas(List&lt;int&gt; respostas)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getId(): Long
++ setId(id: Long): void
++ getTitulo(): String
++ setTitulo(titulo: String): void
++ getTexto(): String
++ setTexto(texto: String): void
++ getOpcoes(): List&lt;String&gt;
++ setOpcoes(opcoes: List&lt;String&gt;): void
++ getRespostas(): List&lt;Integer&gt;
++ setRespostas(respostas: List&lt;Integer&gt;): void
++ getVezesPerguntado(): Long
++ getVezesPerguntado(vezesPerguntado: Long): void
++ getBancoDeQuestoes(): BancoDeQuestoes
++ getBancoDeQuestoes(bancoDeQuestoes: Long): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>522</y>
-      <w>222</w>
-      <h>360</h>
+      <y>736</y>
+      <w>312</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>_Usuario_
 --
@@ -55,41 +58,41 @@
 - idAdministrador: Long
 - idUsuarioComum: Long
 --
-+ void login()
-+ void logout()
-+ void setRecursos()
-+ void criarRegistroUsuario()
++ login(): void
++ logout(): void
++ setRecursos(): void
++ criarRegistroUsuario(): void
 
-+ Long getId()
-+ void setId(Long id)
-+ String getNome()
-+ void setNome(String nome)
-+ String getEmail()
-+ void setEmail(String email)
-+ String getSenhaCriptografada()
-+ void setSenhaCriptografada(String senhaCriptografada)
-+ Enum getTipoUsuario()
-+ void setTipoUsuario(Enum tipoUsuario)
-+ Date getDataNascimento()
-+ void setDataNascimento(Date dataNascimento)
-+ String getEndereco()
-+ void setEndereco(String endereco)
-+ Long getIdAdministrador()
-+ void setIdAdministrador(Long idAdministrador)
-+ Long getIdUsuarioComum()
-+ void setIdUsuarioComum(Long idUsuarioComum)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getId(): Long
++ setId(id: Long): void
++ getNome(): String
++ setNome(nome: String): void
++ getEmail(): String
++ setEmail(email: String): void
++ getSenhaCriptografada(): String
++ setSenhaCriptografada(senhaCriptografada: String): void
++ getTipoUsuario(): Enum
++ setTipoUsuario(tipoUsuario: Enum): void
++ getDataNascimento(): Date
++ setDataNascimento(dataNascimento: Date): void
++ getEndereco(): String
++ setEndereco(endereco: String): void
++ getIdAdministrador(): Long
++ setIdAdministrador(Long idAdministrador): void
++ getIdUsuarioComum(): Long
++ setIdUsuarioComum(idUsuarioComum: Long): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>738</x>
-      <y>306</y>
-      <w>204</w>
-      <h>168</h>
+      <x>984</x>
+      <y>448</y>
+      <w>280</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>_BancoDeQuestoes_
 --
@@ -98,26 +101,26 @@
 - administrador: Administrador
 - questoes: List&lt;Questao&gt;
 --
-+ Long getId()
-+ void setId(Long id) 
-+ Questionario getQuestionario()
-+ void setQuestionario(Questionario questionario)
-+ Administrador getAdministrador()
-+ void setAdministrador(Administrador administrador) 
-+ List&lt;Questao&gt; getQuestoes()
-+ void setQuestoes(List&lt;Questao&gt; questoes)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getId(): Long
++ setId(id: Long): void
++ getQuestionario(): Questionario
++ setQuestionario(questionario: Questionario): void
++ getAdministrador(): Administrador
++ setAdministrador(administrador:Administrador): void 
++ getQuestoes(): List&lt;Questao&gt;
++ setQuestoes(questoes:List&lt;Questao&gt;): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>714</x>
-      <y>522</y>
-      <w>210</w>
-      <h>222</h>
+      <x>952</x>
+      <y>736</y>
+      <w>280</w>
+      <h>296</h>
     </coordinates>
     <panel_attributes>_Questionario_
 --
@@ -128,16 +131,16 @@
 - dataFim: Date
 - duracao: Long
 --
-+ Long getId()
-+ void setId(Long id)
-+ String getNome()
-+ void setNome(String nome)
-+ boolean getTipoQuestionario()
-+ void setTipoQuestionario(boolean tipoQuestionario)
-+ Date getDataInicio()
-+ void setDataInicio()
-+ Date getDataFim()
-+ void setDataFim()
++ getId(): Long
++ setId(id: Long): void
++ getNome(): String
++ setNome(nome: String): void
++ getTipoQuestionario(): boolean
++ setTipoQuestionario(tipoQuestionario: boolean): void
++ getDataInicio(): Date
++ setDataInicio(): void
++ getDataFim(): Date
++ setDataFim(): void
 + Long getDuracao()
 + void setDuracao(Long duracao)
 + int hashCode()
@@ -148,78 +151,78 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>918</x>
-      <y>132</y>
-      <w>90</w>
-      <h>516</h>
+      <x>1224</x>
+      <y>168</y>
+      <w>144</w>
+      <h>736</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=
 m2=</panel_attributes>
-    <additional_attributes>70.0;10.0;130.0;10.0;130.0;840.0;10.0;840.0</additional_attributes>
+    <additional_attributes>90.0;10.0;160.0;10.0;160.0;900.0;10.0;900.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>324</x>
-      <y>522</y>
-      <w>318</w>
-      <h>156</h>
+      <x>432</x>
+      <y>736</y>
+      <w>424</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>_UsuarioComum_
 --
-- mapQuestionariosFeitos: HashMap&lt;Long, Long&gt; (idQuestionario, qtdFeitos)
+- mapQuestionariosFeitos: HashMap&lt;Long, Long&gt; ; (idQuestionario, qtdFeitos)
 - grupos: List&lt;Long&gt;
---                      
-+ void revisarQuestionario()
+--
++ revisarQuestionario(): void
 
-+ HashMap&lt;Long, Long&gt; getMapQuestionariosFeitos()
-+ void setMapQuestionariosFeitos(HashMap&lt;Long, Long&gt; mapQuestionariosFeitos)
-+ List&lt;Long&gt; getGrupos()
-+ void setGrupos(List&lt;Long&gt; grupos)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getMapQuestionariosFeitos(): HashMap&lt;Long, Long&gt;
++ setMapQuestionariosFeitos(mapQuestionariosFeitos: HashMap&lt;Long, Long&gt;): void
++ getGrupos(): List&lt;Long&gt;
++ setGrupos(grupos: List&lt;Long&gt;): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>24</x>
-      <y>42</y>
-      <w>198</w>
-      <h>222</h>
+      <x>32</x>
+      <y>96</y>
+      <w>264</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>_Administrador_
 --
 - questionarios: List&lt;Long&gt;
 - grupos: List&lt;Long&gt;
 --
-+ void adicionarUsuarioComum()
-+ void deletarUsuarioComum()
-+ Grupo criarGrupo()
-+ Questionario criarQuestionario()
-+ void editarQuestionario()
-+ void editarBancoDeQuestionarios()
-+ void categoriaQuestionario()
-+ void editarGrupo() 
++ adicionarUsuarioComum(): void
++ deletarUsuarioComum(): void
++ criarGrupo(): Grupo
++ criarQuestionario(): Questionario
++ editarQuestionario(): void
++ editarBancoDeQuestionarios(): void
++ categoriaQuestionario(): void
++ editarGrupo(): void
 
-+ List&lt;Long&gt; getQuestionarios()
-+ void setQuestionarios(List&lt;Long&gt; questionarios)
-+ List&lt;Long&gt; getGrupos()
-+ void setGrupos(List&lt;Long&gt; grupos)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getQuestionarios(): List&lt;Long&gt;
++ setQuestionarios(questionarios: List&lt;Long&gt;): void
++ getGrupos(): List&lt;Long&gt;
++ setGrupos(grupos: List&lt;Long&gt;): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>348</x>
-      <y>42</y>
-      <w>294</w>
-      <h>168</h>
+      <x>464</x>
+      <y>96</y>
+      <w>400</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>_Grupo_
 --
@@ -228,26 +231,26 @@ m2=</panel_attributes>
 - nome: String
 - usuariosComunsCadastrados: List&lt;Long&gt;
 --
-+ Long getId()
-+ void setId(Long id)
-+ Long getIdAdministrador()
-+ void setIdAdministrador(Long idAdministrador)
-+ String getNome()
-+ void setNome(String nome)
-+ Long getUsuariosComunsCadastrados()
-+ void setUsuariosComunsCadastrados(Long usuariosComunsCadastrados)
-+ int hashCode()
-+ String toString()
-+ boolean equals(Object obj)</panel_attributes>
++ getId(): Long
++ setId(id: Long): void
++ getIdAdministrador(): Long
++ setIdAdministrador(idAdministrador: Long): void
++ getNome(): String
++ setNome(nome: String): void
++ getUsuariosComunsCadastrados(): Long
++ setUsuariosComunsCadastrados(usuariosComunsCadastrados: Long): void
++ hashCode(): int
++ toString(): String
++ equals(obj: Object): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>474</x>
-      <y>204</y>
-      <w>30</w>
-      <h>330</h>
+      <x>632</x>
+      <y>312</y>
+      <w>40</w>
+      <h>440</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
@@ -257,10 +260,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>114</y>
-      <w>144</w>
-      <h>24</h>
+      <x>288</x>
+      <y>192</y>
+      <w>192</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
@@ -270,23 +273,23 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>138</y>
-      <w>552</w>
-      <h>138</h>
+      <x>288</x>
+      <y>176</y>
+      <w>736</w>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;40.0;170.0;40.0;170.0;210.0;790.0;210.0;790.0;10.0;900.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;170.0;100.0;170.0;270.0;790.0;270.0;790.0;10.0;900.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>198</y>
-      <w>534</w>
-      <h>198</h>
+      <x>288</x>
+      <y>304</y>
+      <w>712</w>
+      <h>264</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
@@ -296,10 +299,10 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>228</y>
-      <w>510</w>
-      <h>360</h>
+      <x>288</x>
+      <y>344</y>
+      <w>680</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
@@ -309,32 +312,32 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>600</y>
-      <w>120</w>
-      <h>18</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>108</x>
-      <y>258</y>
-      <w>18</w>
-      <h>276</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;440.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>636</x>
-      <y>618</y>
-      <w>90</w>
+      <x>304</x>
+      <y>840</y>
+      <w>144</w>
       <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>352</y>
+      <w>24</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>864</y>
+      <w>120</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -344,10 +347,10 @@ m2=1..1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>468</y>
-      <w>30</w>
-      <h>66</h>
+      <x>1080</x>
+      <y>664</y>
+      <w>40</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..1
@@ -357,14 +360,14 @@ m2=1..1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>834</x>
-      <y>258</y>
-      <w>30</w>
-      <h>60</h>
+      <x>1112</x>
+      <y>376</y>
+      <w>40</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1..1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
 </diagram>

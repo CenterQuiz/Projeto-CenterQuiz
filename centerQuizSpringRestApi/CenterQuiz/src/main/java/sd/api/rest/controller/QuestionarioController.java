@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sd.api.rest.model.Questionario;
-import sd.api.rest.model.repository.QuestionarioRepository;
+import sd.api.rest.repository.QuestionarioRepository;
 
 @RestController
 @RequestMapping(value="/api/questionario")

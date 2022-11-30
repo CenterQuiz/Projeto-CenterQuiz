@@ -34,8 +34,8 @@ public class Questao implements Serializable{
 	private Long vezesPerguntado;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "id_banco_de_questoes")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_banco_de_questoes", insertable = true, updatable = true)
 	private BancoDeQuestoes bancoDeQuestoes;
 	
 	
