@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sd.api.rest.model.BancoDeQuestoes;
 import sd.api.rest.model.Questao;
-import sd.api.rest.model.repository.BancoDeQuestoesRepository;
-import sd.api.rest.model.repository.QuestaoRepository;
-import sd.api.rest.model.repository.QuestionarioRepository;
+import sd.api.rest.repository.BancoDeQuestoesRepository;
+import sd.api.rest.repository.QuestaoRepository;
+import sd.api.rest.repository.QuestionarioRepository;
 
 @RestController
 @RequestMapping(value = "/api/banco-de-questoes")
