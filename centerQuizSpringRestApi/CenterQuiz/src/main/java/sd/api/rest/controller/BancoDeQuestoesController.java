@@ -84,14 +84,6 @@ public class BancoDeQuestoesController {
             i++;
         }
         
-         id, questionario, Lista de banco de questoes
-        */
-
-        BancoDeQuestoes bancoDeQuestoesSalvo = bancoDeQuestoesRepository.save(bancoDeQuestoes);
-        
-        for (Questao questao: bancoDeQuestoes.getQuestoes()) {
-            Questao questaoSalva = questaoRepository.save(questao);
-        }
         
 
         return new ResponseEntity<BancoDeQuestoes>(bancoDeQuestoesSalvo, HttpStatus.OK);
