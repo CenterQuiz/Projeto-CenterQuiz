@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sd.api.rest.model.BancoDeQuestoes;
 import sd.api.rest.model.Questao;
+import sd.api.rest.model.Questionario;
 import sd.api.rest.repository.BancoDeQuestoesRepository;
 import sd.api.rest.repository.QuestaoRepository;
 import sd.api.rest.repository.QuestionarioRepository;
@@ -33,11 +34,15 @@ public class BancoDeQuestoesController {
 
     @GetMapping(value = "/todos", produces = "application/json")
     public ResponseEntity<List<BancoDeQuestoes>> obterBancoDeQuestoes() {
-        List<BancoDeQuestoes> bancoDeQuestoes = (List<BancoDeQuestoes>) bancoDeQuestoesRepository.findAll();
+        List<BancoDeQuestoes> bancoDeQuestoes
+                = (List<BancoDeQuestoes>) bancoDeQuestoesRepository.findAll();
 
         int x = 0;
         System.err.println(x);
-        return new ResponseEntity<List<BancoDeQuestoes>>(bancoDeQuestoes, HttpStatus.OK);
+        return new ResponseEntity<List<BancoDeQuestoes>>(
+                bancoDeQuestoes,
+                HttpStatus.OK
+        );
     }
 
     /**
@@ -52,40 +57,29 @@ public class BancoDeQuestoesController {
      * @return
      */
     @PostMapping(value = "", produces = "application/json")
-    public ResponseEntity<BancoDeQuestoes> criarBancoDeQuestoes(@RequestBody BancoDeQuestoes bancoDeQuestoes) {
-        /*
-        Questionario questionario = new Questionario();
-
-        questionario.setId(null);
-        questionario.setNome(bancoDeQuestoes.getQuestionario().getNome());
-        questionario.setTipoQuestionario(bancoDeQuestoes.getQuestionario().isTipoQuestionario());
-        questionario.setDataInicio(bancoDeQuestoes.getQuestionario().getDataInicio());
-        questionario.setDataFim(bancoDeQuestoes.getQuestionario().getDataFim());
-        questionario.setDuracao(bancoDeQuestoes.getQuestionario().getDuracao());
-        questionario.setBancoDeQuestoes(bancoDeQuestoes.getQuestionario().getBancoDeQuestoes());
+    public ResponseEntity<BancoDeQuestoes> criarBancoDeQuestoes(
+            @RequestBody BancoDeQuestoes bancoDeQuestoes
+    ) {
         
+        Questionario questionario = bancoDeQuestoes.getQuestionario();
         Questionario questionarioSalvo = questionarioRepository.save(questionario);
-        bancoDeQuestoes.getQuestionario().setId(questionarioSalvo.getId());
+        bancoDeQuestoes.setQuestionario(questionarioSalvo);
 
-        int i = 0;
-        for (Questao questao : bancoDeQuestoes.getQuestoes()) {
-//id, titulo, texto, opcoes, respostas, vezesPerguntado, bancoDeQuestoes
-            Questao questaoTemp = new Questao();
-            questaoTemp.setId(null);
-            questaoTemp.setTitulo(questao.getTitulo());
-            questaoTemp.setTexto(questao.getTexto());
-            questaoTemp.setOpcoes(questao.getOpcoes());
-            questaoTemp.setRespostas(questao.getRespostas());
-            questaoTemp.setVezesPerguntado(questao.getVezesPerguntado());
-            questaoTemp.setBancoDeQuestoes(questao.getBancoDeQuestoes());
+        BancoDeQuestoes bancoDeQuestoesSalvo = bancoDeQuestoesRepository.save(bancoDeQuestoes);
 
-            Questao questaoSalva = questaoRepository.save(questaoTemp);
-            bancoDeQuestoes.getQuestoes().get(i).setId(questaoSalva.getId());
-            i++;
+        BancoDeQuestoes bancoDeQuestoesAux = bancoDeQuestoesSalvo;
+        
+        for (Questao questao: bancoDeQuestoesAux.getQuestoes()) {
+            questao.setBancoDeQuestoes(bancoDeQuestoesSalvo);
         }
         
+        BancoDeQuestoes bancoDeQuestoesSalvo2 = bancoDeQuestoesRepository.save(bancoDeQuestoesAux);
         
+        
+        return new ResponseEntity<>(
+                bancoDeQuestoesSalvo2,
+                HttpStatus.OK
+        );
 
-        return new ResponseEntity<BancoDeQuestoes>(bancoDeQuestoesSalvo, HttpStatus.OK);
     }
 }

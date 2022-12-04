@@ -1,5 +1,6 @@
 package sd.api.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -36,6 +37,7 @@ public class Questao implements Serializable{
 	
 	
 	@ManyToOne(cascade = CascadeType.ALL)
+        @JsonIgnore
 	@JoinColumn(name = "id_banco_de_questoes", insertable = true, updatable = true)
 	private BancoDeQuestoes bancoDeQuestoes;
 	
