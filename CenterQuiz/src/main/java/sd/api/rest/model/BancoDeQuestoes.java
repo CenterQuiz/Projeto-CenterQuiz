@@ -4,17 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
-
 import javax.persistence.ElementCollection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class BancoDeQuestoes implements Serializable {
@@ -25,17 +20,11 @@ public class BancoDeQuestoes implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "questionario_id")
-    private Questionario questionario;
+    private Long idQuestionario;
 
-    /*
-	@OneToOne
-	@MapsId
-	@JoinColumn(name = "idAdministrador")
-	private Administrador administrador;
-     */
-    @OneToMany(mappedBy = "bancoDeQuestoes", cascade = CascadeType.ALL)
+    private Long idAdministrador;
+    
+    @ElementCollection
     private List<Questao> questoes = new ArrayList<Questao>();
 
     public Long getId() {
@@ -46,12 +35,20 @@ public class BancoDeQuestoes implements Serializable {
         this.id = id;
     }
 
-    public Questionario getQuestionario() {
-        return questionario;
+    public Long getIdQuestionario() {
+        return idQuestionario;
     }
 
-    public void setQuestionario(Questionario questionario) {
-        this.questionario = questionario;
+    public void setIdQuestionario(Long idQuestionario) {
+        this.idQuestionario = idQuestionario;
+    }
+
+    public Long getIdAdministrador() {
+        return idAdministrador;
+    }
+
+    public void setIdAdministrador(Long idAdministrador) {
+        this.idAdministrador = idAdministrador;
     }
 
     public List<Questao> getQuestoes() {
@@ -84,6 +81,6 @@ public class BancoDeQuestoes implements Serializable {
 
     @Override
     public String toString() {
-        return "BancoDeQuestoes [id=" + id + ", questionario=" + questionario + ", questoes=" + questoes + "]";
+        return "BancoDeQuestoes{" + "id=" + id + ", idQuestionario=" + idQuestionario + ", idAdministrador=" + idAdministrador + ", questoes=" + questoes + '}';
     }
 }
