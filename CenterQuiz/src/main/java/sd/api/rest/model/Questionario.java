@@ -1,5 +1,6 @@
 package sd.api.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -8,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-	
+import javax.persistence.Temporal;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Questionario implements Serializable{
@@ -32,12 +33,15 @@ public class Questionario implements Serializable{
 	
 	private String nome;
 	private boolean tipoQuestionario;
+        
+        
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date dataInicio;
-	private Date dataFim;
-	private Long duracao;
 	
-	@OneToOne(mappedBy = "questionario")
-	private BancoDeQuestoes bancoDeQuestoes;
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date dataFim;
+	
+        private Long duracao;
 	
 	public Long getId() {
 		return id;
@@ -85,14 +89,6 @@ public class Questionario implements Serializable{
 
 	public void setDuracao(Long duracao) {
 		this.duracao = duracao;
-	}
-
-	public BancoDeQuestoes getBancoDeQuestoes() {
-		return bancoDeQuestoes;
-	}
-
-	public void setBancoDeQuestoes(BancoDeQuestoes bancoDeQuestoes) {
-		this.bancoDeQuestoes = bancoDeQuestoes;
 	}
 
 	@Override
