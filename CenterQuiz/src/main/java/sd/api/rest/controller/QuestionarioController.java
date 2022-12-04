@@ -39,6 +39,7 @@ public class QuestionarioController {
 		return new ResponseEntity(questionario.get(), HttpStatus.OK);
 	}
 	
+        /*
 	@PostMapping(value="", produces="application/json")
 	public ResponseEntity<Questionario> cadastrarQuestionario(@RequestBody Questionario questionario) {
 		
@@ -46,4 +47,5 @@ public class QuestionarioController {
 		
 		return new ResponseEntity<Questionario>(questionarioSalvo, HttpStatus.OK);
 	}
+        */
 }
